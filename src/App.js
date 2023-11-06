@@ -15,6 +15,7 @@ import ExpenseItem from './components/ExpenseItem';
 
 import { AppProvider } from './context/AppContext';
 const App = () => {
+    console.log(ExpenseTotal.totalExpenses)
     return (
         <AppProvider>
             <div className='container'>
