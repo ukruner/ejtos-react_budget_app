@@ -2,8 +2,6 @@ import React, {useContext, useSelector, useEffect, useState} from 'react';
 import { AppContext } from '../context/AppContext';
 
 const ExpenseTotal = () => {
-    
-    // const [totalExpenses, setTotalExpenses] = useState(0);
 
     const { expenses, dispatch} = useContext(AppContext);
 
@@ -12,11 +10,7 @@ const ExpenseTotal = () => {
         return (total += item.cost);
     }, 0);
 
-    // const editableContent = totalExpenses;
     const [editableContent, setEditableContent] = useState(totalExpenses);
-    // useEffect(() => {
-    //         sending_data();
-    //   }, [sending_data, totalExpenses]);
 
     useEffect(() => {
         if (totalExpenses !== editableContent) {
