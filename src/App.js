@@ -10,6 +10,7 @@ import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
 import ExpenseItem from './components/ExpenseItem';
 import Currency from './components/Currency';
+import CustomDropdown from './components/Custom';
 
 // Add code to import the other components here under
 
@@ -54,7 +55,8 @@ const App = () => {
                     <div className= 'col-sm'>
                         <AllocationForm/>
                     </div>
-                </div>                       
+                </div>
+                <div><CustomDropdown/></div>                       
             </div>             
         </AppProvider>
     );
