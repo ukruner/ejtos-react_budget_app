@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const ExpenseTotal = () => {
 
-    const { expenses, dispatch} = useContext(AppContext);
+    const { expenses, dispatch, currency} = useContext(AppContext);
 
     const totalExpenses = expenses.reduce((total, item) => {
    
@@ -30,7 +30,7 @@ const ExpenseTotal = () => {
 
     return (
         <div className='alert alert-primary'>
-                <span contentEditable='true' onInput={handleSpanChange}>Spent so far: £{totalExpenses}</span>
+                <span contentEditable='true' onInput={handleSpanChange}>Spent so far: {currency}{totalExpenses}</span>
         </div>
     );
     
