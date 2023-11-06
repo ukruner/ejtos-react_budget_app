@@ -1,0 +1,16 @@
+/* Style the select element */
+#currency {
+    background-color: limegreen; /* Change to your desired background color */
+    color: #ffffff; /* Change to your desired text color */
+    border: 1px solid #2980b9; /* Change to your desired border color */
+    padding: 5px;
+  }
+  
+  /* Style the dropdown arrow */
+
+/* Style the dropdown options */
+#currency option {
+    background-color: limegreen; /* Change to your desired background color */
+    color: #ffffff; /* Change to your desired text color */
+  }
+    
