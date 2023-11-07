@@ -26,21 +26,25 @@ const Currency = () => {
         color: state.isFocused ? 'black' : base.color, // Change to your desired text color on hover
   }),
       };
-    const defaultOption = options[1];  
-    const CustomDropdown = () => {
+
       const options = [
         {value:'$', label:"($)Dollar"},
         {value:'£', label: "(£)Pound"},
         {value:'€', label:"(€)Euro"},
         {value:'₹', label:"(₹)Ruppee"},
       ];
-
-      
+    const defaultOption = options[1];  
+    const CustomDropdown = () => {
+      const [selectedOption, setSelectedOption] = useState(null);
+      const handleChange = (selectedOption) => {
+        setSelectedOption(selectedOption);
+        
+      }
       return (
         <Select
-          options={options}
-          
-          styles={customStyle}/>
+        options={options}
+        defaultValue={defaultOption}
+        styles={customStyle}/>
       );
     };
 
