@@ -1,37 +1,29 @@
 import React, { useContext, useState} from 'react';
 import { AppContext } from '../context/AppContext';
-import "./currency.css";
 import Select from 'react-select';
 
 const Currency = () => {
   const {dispatch } = useContext(AppContext);
-
-    const changeCurrency = (val)=>{
-            dispatch({
-                type: 'CHG_CURRENCY',
-                payload: val,
-            })
-    }
     const customStyle = {
       control: (base) => ({
         ...base,
-        background: 'forestgreen', // Change to your desired background color
-        color: '#ffffff', // Change to your desired text color
-        border: '1px solid #2980b9', // Change to your desired border color
-        padding: '5px',
+        background: 'lightgreen', // Change to your desired background color
+        color: 'lightgreen', // Change to your desired text color
+        // border: '1px solid ', // Change to your desired border color
+        padding: '9px',
       }),
       option: (base, state) => ({
         ...base,
-        backgroundColor: state.isFocused ? 'white' : "forestgreen", // Change to your desired background color on hover
+        backgroundColor: state.isFocused ? 'white' : "lightgreen", // Change to your desired background color on hover
         color: state.isFocused ? 'black' : base.color, // Change to your desired text color on hover
   }),
       };
 
       const options = [
-        {value:'$', label:"($)Dollar"},
+        {value:'$', label: "($)Dollar"},
         {value:'£', label: "(£)Pound"},
-        {value:'€', label:"(€)Euro"},
-        {value:'₹', label:"(₹)Ruppee"},
+        {value:'€', label: "(€)Euro"},
+        {value:'₹', label: "(₹)Ruppee"},
       ];
     const defaultOption = options[1]; 
     const [selectedOption, setSelectedOption] = useState(defaultOption);

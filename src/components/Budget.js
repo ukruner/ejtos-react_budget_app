@@ -7,10 +7,11 @@ const Budget = () => {
     const [newBudget, setNewBudget] = useState(budget);
     const handleBudgetChange = (event) => {
         setNewBudget(event.target.value);
+        console.log(totalExpenses);
     };
     return (
         <div className = 'alert alert-secondary'>
-        <span>Budget: {currency}{budget} </span>
+        <span>Budget: {currency}{newBudget} </span>
         <input type = "number" step = "10" min = {totalExpenses} max = "20000" value={newBudget} onChange={handleBudgetChange}></input>
         </div>
     );
