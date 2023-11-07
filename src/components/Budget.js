@@ -7,8 +7,12 @@ const Budget = () => {
     const [newBudget, setNewBudget] = useState(budget);
     const handleBudgetChange = (event) => {
         setNewBudget(event.target.value);
-        console.log(totalExpenses);
+        if (newBudget == totalExpenses) {
+            alert("You cannot reduce the budget value lower than the spending")
+            return;
+        }
     };
+
     return (
         <div className = 'alert alert-secondary'>
         <span>Budget: {currency}{newBudget} </span>
