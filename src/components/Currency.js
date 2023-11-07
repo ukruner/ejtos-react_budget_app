@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState} from 'react';
 import { AppContext } from '../context/AppContext';
 import "./currency.css";
 import Select from 'react-select';
@@ -15,14 +15,14 @@ const Currency = () => {
     const customStyle = {
       control: (base) => ({
         ...base,
-        background: 'limegreen', // Change to your desired background color
+        background: 'forestgreen', // Change to your desired background color
         color: '#ffffff', // Change to your desired text color
         border: '1px solid #2980b9', // Change to your desired border color
         padding: '5px',
       }),
       option: (base, state) => ({
         ...base,
-        backgroundColor: state.isFocused ? 'white' : "limegreen", // Change to your desired background color on hover
+        backgroundColor: state.isFocused ? 'white' : "forestgreen", // Change to your desired background color on hover
         color: state.isFocused ? 'black' : base.color, // Change to your desired text color on hover
   }),
       };
@@ -33,18 +33,25 @@ const Currency = () => {
         {value:'€', label:"(€)Euro"},
         {value:'₹', label:"(₹)Ruppee"},
       ];
-    const defaultOption = options[1];  
+    const defaultOption = options[1]; 
+
     const CustomDropdown = () => {
-      const [selectedOption, setSelectedOption] = useState(null);
+      const [selectedOption, setSelectedOption] = useState(defaultOption);
       const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
-        
-      }
+        console.log(selectedOption)
+          dispatch({
+              type: 'CHG_CURRENCY',
+              payload: selectedOption,
+          }); 
+      };
       return (
         <Select
         options={options}
-        defaultValue={defaultOption}
-        styles={customStyle}/>
+        // defaultValue={defaultOption}
+        value={selectedOption}
+        styles={customStyle}
+        onChange={((event)=>handleChange(event.value))}/>
       );
     };
 
