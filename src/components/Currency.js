@@ -34,16 +34,17 @@ const Currency = () => {
         {value:'₹', label:"(₹)Ruppee"},
       ];
     const defaultOption = options[1]; 
+    const [selectedOption, setSelectedOption] = useState(defaultOption);
 
     const CustomDropdown = () => {
-      const [selectedOption, setSelectedOption] = useState(defaultOption);
       const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
-        console.log(selectedOption)
+        console.log(selectedOption.label)
           dispatch({
               type: 'CHG_CURRENCY',
-              payload: selectedOption,
-          }); 
+              payload: selectedOption.value,
+          });
+          return(selectedOption); 
       };
       return (
         <Select
@@ -51,14 +52,19 @@ const Currency = () => {
         // defaultValue={defaultOption}
         value={selectedOption}
         styles={customStyle}
-        onChange={((event)=>handleChange(event.value))}/>
+        onChange={handleChange}/>
       );
     };
 
   return (
     <CustomDropdown></CustomDropdown>
+
+    );
+};
+
+export default Currency;
     //     <div className="alert" style={{backgroundColor:"limegreen"}} > {
-    //   <select name="currency" id="currency" style={customStyle} onChange={event=>changeCurrency(event.target.value)}>
+    //   <select name="currency" id="currency" onChange={event=>changeCurrency(event.target.value)}>
     //     <option id="currency option" value="$">($)Dollar</option>
     //     <option id="currency option" value="£" selected>(£)Pound</option>
     //     <option id="currency option" value="€">(€)Euro</option>
@@ -67,7 +73,3 @@ const Currency = () => {
     //   </select>	
     //   }	
     // </div>
-    );
-};
-
-export default Currency;
